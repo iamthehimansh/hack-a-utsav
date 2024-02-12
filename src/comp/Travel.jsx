@@ -1,13 +1,13 @@
 import React from 'react'
 import './Travel.css'
-export default function Travel({opp,i}) {
+export default function Travel({opp,bg="https://picsum.photos/200/400",i,text="Goa",tasks=[{name:"Buy a lemon",lat:0,long:0},{name:"Enjoy beach",lat:0,long:0},{name:"Buy a jhumka",lat:0,long:0}]}) {
 
     const ele=React.useRef(0)
     const parent=React.useRef(0)
   return (
     <div className={`travel-block ${opp?"opp":""}`}>
       <div className='travel-img' style={{
-        backgroundImage:`url("https://picsum.photos/200/400?i=${i}")`
+        backgroundImage:`url("${bg}?i=${i}")`
       }}>
         
         <div ref={parent} className='travel-text'>
@@ -15,15 +15,18 @@ export default function Travel({opp,i}) {
             height:"30%"
           }}>
 
-          Goa
+          {text}
           </div>
           </div>
         
       </div>
       <div className='travel-task'>
-       <div className="task">Buy a lemon</div>
-       <div className="task">Enjoy beach</div>
-       <div className="task">Buy a jhumka</div>
+        {
+          tasks.map((e,i)=>{
+            return <div key={i} className="task">{e.name}</div>
+          })
+        }
+       
       </div>
     </div>
   )

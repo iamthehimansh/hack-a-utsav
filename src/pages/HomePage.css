@@ -43,3 +43,17 @@ min-height: 5em;
 .now:active{
     transform: scale(0.9);
 }
+
+
+
+.trip{
+    background: aqua;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: larger;
+    min-width: 300px;
+}

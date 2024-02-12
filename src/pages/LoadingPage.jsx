@@ -28,7 +28,7 @@
                         opacity: 0,
                         transition: 'opacity 2s ease-in-out',
                         animation: 'fade-in 2s ease-in-out infinite',
-
+                        display:this.props.hidden?"none":"block"
                     }}
                     
                 >

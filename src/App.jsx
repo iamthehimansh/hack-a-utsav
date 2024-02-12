@@ -8,24 +8,23 @@ import NavigationPage from './pages/NavigationPage'
 import NavWithTask from './pages/NavWithTask'
 function App() {
     const [page, setPage] = useState('home')
-    const [showLoading, setShowLoading] = useState(false)
+    const [hiddenLoadin, setHiddenloading] = useState(true)
     const sP = (p) => {
-        setShowLoading(true)
+        setHiddenloading(true)
         setTimeout(() => {
             setPage(p)
-            setShowLoading(false)
+            setHiddenloading(false)
         }, 1000)
     }
   return (
     <>
     {
-      showLoading?<LoadingPage setPage={sP} />:null
+      <LoadingPage setPage={sP} hidden={hiddenLoadin} />
     }
-    { !showLoading&& (page === 'home')? <HomePage setPage={sP} />: null}
-    { !showLoading&& (page === 'chat')? <ChatPage setPage={sP} />: null}
-    { !showLoading&& (page === 'loading')? <LoadingPage setPage={sP} />: null}
-    { !showLoading&& (page === 'nav')? <NavigationPage setPage={sP} />: null}
-    { !showLoading&& (page === 'navT')? <NavWithTask setPage={sP} />: null}
+    { !hiddenLoadin&& (page === 'home')? <HomePage setHiddenloading={setHiddenloading} setPage={sP} />: null}
+    { !hiddenLoadin&& (page === 'chat')? <ChatPage setHiddenloading={setHiddenloading} setPage={sP} />: null}
+    { !hiddenLoadin&& (page === 'nav')? <NavigationPage setHiddenloading={setHiddenloading} setPage={sP} />: null}
+    { !hiddenLoadin&& (page === 'navT')? <NavWithTask setHiddenloading={setHiddenloading} setPage={sP} />: null}
     </>
   )
 }

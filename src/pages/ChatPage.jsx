@@ -37,7 +37,12 @@ export default class ChatPage extends Component {
         }
         this.setState({ messages: updatedMessages, newMessage: "" });
         if(this.i>=this.q.length){
+            this.props.setHiddenloading(true)
+            //Some Work
+            localStorage.setItem("chat",this.state.messages)
+            this.props.setHiddenloading(false)
             this.props.setPage("nav")
+            
         }
     }
 
